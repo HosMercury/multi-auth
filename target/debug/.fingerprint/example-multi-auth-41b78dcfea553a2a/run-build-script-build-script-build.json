@@ -1,0 +1,1 @@
+{"rustc":14069956780276445298,"features":"","target":0,"profile":0,"path":0,"deps":[[1678991102811552827,"build_script_build",false,7908266593835965399]],"local":[{"RerunIfChanged":{"output":"debug/build/example-multi-auth-41b78dcfea553a2a/output","paths":["migrations"]}}],"rustflags":[],"metadata":0,"config":0,"compile_kind":0}

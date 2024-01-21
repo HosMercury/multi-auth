@@ -1,0 +1,10 @@
+/Users/Hos/wk/multi-auth/target/debug/deps/libfinl_unicode-1339f730262e7a60.rmeta: /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/lib.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/categories.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/grapheme_clusters.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/mod.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/characters.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/grapheme_property.rs
+
+/Users/Hos/wk/multi-auth/target/debug/deps/finl_unicode-1339f730262e7a60.d: /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/lib.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/categories.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/grapheme_clusters.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/mod.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/characters.rs /Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/grapheme_property.rs
+
+/Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/lib.rs:
+/Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/categories.rs:
+/Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/grapheme_clusters.rs:
+/Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/mod.rs:
+/Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/characters.rs:
+/Users/Hos/.cargo/registry/src/index.crates.io-6f17d22bba15001f/finl_unicode-1.2.0/src/data/grapheme_property.rs:
