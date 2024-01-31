@@ -15,8 +15,10 @@ use sqlx::{FromRow, Pool, Postgres};
 pub struct User {
     id: i64,
     pub username: String,
+    pub email: String,
     pub password: Option<String>,
     pub access_token: Option<String>,
+    pub refresh_token: Option<String>,
 }
 
 // Here we've implemented `Debug` manually to avoid accidentally logging the
@@ -26,8 +28,10 @@ impl std::fmt::Debug for User {
         f.debug_struct("User")
             .field("id", &self.id)
             .field("username", &self.username)
+            .field("email", &self.email)
             .field("password", &"[redacted]")
             .field("access_token", &"[redacted]")
+            .field("refresh_token", &"[redacted]")
             .finish()
     }
 }
@@ -74,7 +78,8 @@ pub struct OAuthCreds {
 
 #[derive(Debug, Deserialize)]
 struct UserInfo {
-    login: String,
+    email: String,
+    username: Option<String>,
 }
 
 #[derive(Debug, thiserror::Error)]
@@ -163,8 +168,8 @@ impl AuthnBackend for Backend {
 
                 // Use access token to request user info.
                 let user_info = reqwest::Client::new()
-                    .get("https://api.github.com/user")
-                    .header(USER_AGENT.as_str(), "axum-login") // See: https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#user-agent-required
+                    .get("https://www.googleapis.com/oauth2/v3/userinfo")
+                    // .header(USER_AGENT.as_str(), "axum-login")
                     .header(
                         AUTHORIZATION.as_str(),
                         format!("Bearer {}", token_res.access_token().secret()),
@@ -176,17 +181,20 @@ impl AuthnBackend for Backend {
                     .await
                     .map_err(Self::Error::Reqwest)?;
 
+                println!("{:?}", user_info);
+
                 // Persist user in our database so we can use `get_user`.
                 let user = sqlx::query_as(
                     r#"
-                    insert into users (username, access_token)
+                    insert into users (email, access_token)
                     values ($1, $2)
-                    on conflict(username) do update
+                    on conflict(email) do update
                     set access_token = excluded.access_token
+                    set refresh_token = excluded.refresh_token
                     returning *
                     "#,
                 )
-                .bind(user_info.login)
+                .bind(user_info.email)
                 .bind(token_res.access_token().secret())
                 .fetch_one(&self.db)
                 .await

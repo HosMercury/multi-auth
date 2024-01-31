@@ -1,10 +1,12 @@
 -- Add migration script here
 CREATE TABLE users (
   id uuid NOT NULL PRIMARY KEY,
-  username TEXT UNIQUE NOT NULL,
+  username TEXT UNIQUE,  
+  email TEXT UNIQUE,
   password TEXT,
-  access_token text,
-  email TEXT UNIQUE NOT NULL,
+  access_token TEXT,
+  refresh_token TEXT,
+  provider TEXT NOT NULL DEFAULT `google`,
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMPTZ,
   last_login TIMESTAMPTZ 

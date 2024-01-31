@@ -38,6 +38,7 @@ mod get {
             state: new_state,
         }): Query<AuthzResp>,
     ) -> impl IntoResponse {
+        println!("callback");
         let Ok(Some(old_state)) = session.get(CSRF_STATE_KEY).await else {
             return StatusCode::BAD_REQUEST.into_response();
         };
